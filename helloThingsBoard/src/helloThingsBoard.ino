@@ -6,6 +6,7 @@
  */
 
 #include <PubSubClient.h>
+#include <JsonParserGeneratorRK.h>
 
 #define TOKEN "ymVZkqclUjP6by3VpZeC"
 #define MQTTPORT 1883
@@ -13,6 +14,7 @@
 char thingsboardServer[] = "thingsboard.cloud";
 char versions[] = "{\"firmware_version\":\"0.0.0\",\"software_version\":\"0.0\"}";
 char mqttBuf[128];
+char mqttSprint;
 TCPClient pubsub;
 PubSubClient plume((Client &)pubsub); // mqtt server named after plume-toed swiftlet
 
@@ -42,6 +44,7 @@ void loop()
         plumePublish();
         lastTime = millis();
     }
+    plume.loop();
 }
 
 void plumePublish()
@@ -55,10 +58,12 @@ void plumePublish()
     float t7 = random(80000, 170000) / 1000.0;
     float t8 = random(80000, 170000) / 1000.0;
     float t9 = random(80000, 170000) / 1000.0;
-
+    float t10 = random(80000, 170000) / 1000.0;
     snprintf(mqttBuf, sizeof(mqttBuf), "{\"t1\":%.2f,\"t2\":%.2f}", t1, t2);
+    // snprintf(mqttBuf, sizeof(mqttBuf), "{\"t1\":%.2f,\"t2\":%.2f\"t3\":%.2f,\"t4\":%.2f\"t5\":%.2f,\"t6\":%.2f\"t7\":%.2f,\"t8\":%.2f\"t9\":%.2f,\"t10\":%.2f}", t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
+    //  sprintf(mqttBuf, "{\"t1\":%.2f,\"t2\":%.2f\"t3\":%.2f,\"t4\":%.2f\"t5\":%.2f,\"t6\":%.2f\"t7\":%.2f,\"t8\":%.2f\"t9\":%.2f,\"t10\":%.2f}", t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
     Serial.printf("mqttBuf: %s\nsizeOf(mqttBuf): %i\n", mqttBuf, sizeof(mqttBuf));
-    plume.publish("v1/devices/me/telemetry",mqttBuf);
+    plume.publish("v1/devices/me/telemetry", mqttBuf);
     static bool onOff = true;
     digitalWrite(LEDPIN, onOff);
     onOff = !onOff;
