@@ -14,12 +14,13 @@
 #include <PubSubClient.h>
 #include <JsonParserGeneratorRK.h>
 
+// #define TOKEN "qIiTpvhvsuslQzkCxVhH" //caseys solar base
 void setup();
 void loop();
 void plumePublish();
 void plumeConnect();
-#line 11 "/home/sun/Documents/SwiftletLaboratories-animated-octo-waddle/helloThingsBoard/src/helloThingsBoard.ino"
-#define TOKEN "cglClS3UqPK1FGzY8Z8I"
+#line 12 "/home/sun/Documents/SwiftletLaboratories-animated-octo-waddle/helloThingsBoard/src/helloThingsBoard.ino"
+#define TOKEN "rkMnbcHMcF4UtinX19xm"
 #define MQTTPORT 1883
 
 char thingsboardServer[] = "thingsboard.cloud";
@@ -55,6 +56,7 @@ void loop()
     {
         plumePublish();
         lastTime = millis();
+        Particle.syncTime();
     }
     plume.loop();
 }
@@ -81,7 +83,7 @@ void plumePublish()
     float v8 = random(32000, 47000) / 1000.0;
     float v9 = random(32000, 47000) / 1000.0;
     float v10 = random(32000, 47000) / 1000.0;
-    long long timeNow = Time.now();
+    uint64_t timeNow = Time.now();
     // String timeNow = String(Time.now() * 1000);
     // Serial.println(timeNow);
     sprintf(timeBuf,"%i000",Time.now());
@@ -90,26 +92,35 @@ void plumePublish()
     Serial.println(Time.now());
     Serial.println(Time.now()*1000);
     // {"ts":1451649600512, "values":{"key1":"value1", "key2":"value2"}}
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values\":{\"t1\":%.2f,\"v1\":%.2f}}", timeBuf, t1, v1);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values1\":{\"t1\":%.2f,\"v1\":%.2f}}", timeBuf, t1, v1);
     // snprintf(mqttBuf, sizeof(mqttBuf), "{\"t1\":%.2f, \"v1\":%.2f}", t1, v1);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t2\":%.2f,\"v2\":%.2f}", t2, v2);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t2\":%.2f,\"v2\":%.2f}", t2, v2);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values2\":{\"t2\":%.2f,\"v2\":%.2f}}", timeBuf, t2, v2);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t3\":%.2f,\"v3\":%.2f}", t3, v3);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t3\":%.2f,\"v3\":%.2f}", t3, v3);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values3\":{\"t3\":%.2f,\"v3\":%.2f}}", timeBuf, t3, v3);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t4\":%.2f,\"v4\":%.2f}", t4, v4);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t4\":%.2f,\"v4\":%.2f}", t4, v4);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values4\":{\"t4\":%.2f,\"v4\":%.2f}}", timeBuf, t4, v4);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t5\":%.2f,\"v5\":%.2f}", t5, v5);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t5\":%.2f,\"v5\":%.2f}", t5, v5);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values5\":{\"t5\":%.2f,\"v5\":%.2f}}", timeBuf, t5, v5);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t6\":%.2f,\"v6\":%.2f}", t6, v6);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t6\":%.2f,\"v6\":%.2f}", t6, v6);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values6\":{\"t6\":%.2f,\"v6\":%.2f}}", timeBuf, t6, v6);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t7\":%.2f,\"v7\":%.2f}", t7, v7);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t7\":%.2f,\"v7\":%.2f}", t7, v7);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values7\":{\"t7\":%.2f,\"v7\":%.2f}}", timeBuf, t7, v7);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t8\":%.2f,\"v8\":%.2f}", t8, v8);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t8\":%.2f,\"v8\":%.2f}", t8, v8);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values8\":{\"t8\":%.2f,\"v8\":%.2f}}", timeBuf, t8, v8);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t9\":%.2f,\"v9\":%.2f}", t9, v9);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t9\":%.2f,\"v9\":%.2f}", t9, v9);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values9\":{\"t9\":%.2f,\"v9\":%.2f}}", timeBuf, t9, v9);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
-    snprintf(mqttBuf, sizeof(mqttBuf), "{\"t10\":%.2f,\"v10\":%.2f}", t10, v10);
+    //snprintf(mqttBuf, sizeof(mqttBuf), "{\"t10\":%.2f,\"v10\":%.2f}", t10, v10);
+    snprintf(mqttBuf, sizeof(mqttBuf), "{\"ts\":%s, \"values10\":{\"t10\":%.2f,\"v10\":%.2f}}", timeBuf, t10, v10);
     plume.publish("v1/devices/me/telemetry", mqttBuf);
     // snprintf(mqttBuf, sizeof(mqttBuf), "{\"t1\":%.2f,\"t2\":%.2f\"t3\":%.2f,\"t4\":%.2f\"t5\":%.2f,\"t6\":%.2f\"t7\":%.2f,\"t8\":%.2f\"t9\":%.2f,\"t10\":%.2f}", t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
     //  sprintf(mqttBuf, "{\"t1\":%.2f,\"t2\":%.2f\"t3\":%.2f,\"t4\":%.2f\"t5\":%.2f,\"t6\":%.2f\"t7\":%.2f,\"t8\":%.2f\"t9\":%.2f,\"t10\":%.2f}", t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
