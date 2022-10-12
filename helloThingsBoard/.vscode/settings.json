@@ -4,6 +4,6 @@
     "files.associations": {
         "*.ino": "cpp"
     },
-    "particle.firmwareVersion": "2.3.0",
-    "particle.targetDevice": ""
+    "particle.firmwareVersion": "4.0.0",
+    "particle.targetPlatform": "bsom"
 }
