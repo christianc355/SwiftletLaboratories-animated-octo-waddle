@@ -37,7 +37,7 @@ void FACTORY();
 void reyaxOn();
 void reyaxOff();
 #line 11 "/home/sun/Documents/SwiftletLaboratories-animated-octo-waddle/superProbe/src/superProbe.ino"
-int probeNumber = 4;                 // identify devices
+int probeNumber = 1;                 // identify devices
 const int THERMISTORNOMINAL = 10000; // resistance at 25 degrees C
 const int TEMPERATURENOMINAL = 25;   // temp for nominal resistance (almost always 25 C)
 const int SERIESRESISTOR = 10000;    // value of 'other' resistor
