@@ -11,7 +11,7 @@
 
 // PRODUCT_ID(17507);   // for module
 PRODUCT_VERSION(1);
-#define TOKEN "duyEQrOmdo4FfM0Ctxkd" // myBoron
+#define TOKEN "1Yz48lsP5qbwnb5YiFdZ" // myBoron
 #define MQTTPORT 1883
 
 char thingsboardServer[] = "thingsboard.cloud";

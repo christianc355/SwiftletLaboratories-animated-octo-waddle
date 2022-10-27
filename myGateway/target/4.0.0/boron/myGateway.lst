@@ -18613,8 +18613,8 @@ void digitalWrite(pin_t pin, uint8_t value)
    bc594:	6e6f 656e 7463 2928 203a 7441 6574 706d     onnect(): Attemp
    bc5a4:	6974 676e 7420 206f 6f63 6e6e 6365 2074     ting to connect 
    bc5b4:	6f74 5420 6968 676e 6273 616f 6472 7320     to Thingsboard s
-   bc5c4:	7265 6576 0072 7564 4579 7251 6d4f 6f64     erver.duyEQrOmdo
-   bc5d4:	4634 4d66 4330 7874 646b 6d00 4279 726f     4FfM0Ctxkd.myBor
+   bc5c4:	7265 6576 0072 5931 347a 6c38 5073 7135     erver.1Yz48lsP5q
+   bc5d4:	7762 626e 5935 4669 5a64 6d00 4279 726f     bwnb5YiFdZ.myBor
    bc5e4:	6e6f 7000 756c 656d 6f43 6e6e 6365 2874     on.plumeConnect(
    bc5f4:	3a29 4320 6e6f 656e 7463 6465 7000 756c     ): Connected.plu
    bc604:	656d 6f43 6e6e 6365 2874 3a29 4320 6e6f     meConnect(): Con

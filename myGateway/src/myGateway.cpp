@@ -27,7 +27,7 @@ void reyaxSetup();
 void reyaxReset();
 #line 13 "/home/sun/Documents/SwiftletLaboratories-animated-octo-waddle/myGateway/src/myGateway.ino"
 PRODUCT_VERSION(1);
-#define TOKEN "duyEQrOmdo4FfM0Ctxkd" // myBoron
+#define TOKEN "1Yz48lsP5qbwnb5YiFdZ" // myBoron
 #define MQTTPORT 1883
 
 char thingsboardServer[] = "thingsboard.cloud";
