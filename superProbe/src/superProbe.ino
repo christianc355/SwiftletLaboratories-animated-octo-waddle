@@ -8,7 +8,7 @@
 #include <math.h>
 
 
-int probeNumber = 1;                 // identify devices
+int probeNumber = 2;                 // identify devices
 const int THERMISTORNOMINAL = 10000; // resistance at 25 degrees C
 const int TEMPERATURENOMINAL = 25;   // temp for nominal resistance (almost always 25 C)
 const int SERIESRESISTOR = 10000;    // value of 'other' resistor
